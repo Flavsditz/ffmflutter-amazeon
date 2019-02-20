@@ -2,11 +2,18 @@ import 'package:amazeon/details.dart';
 import 'package:amazeon/models/Book.dart';
 import 'package:flutter/material.dart';
 
-class Showcase extends StatelessWidget {
+class Showcase extends StatefulWidget {
   final List<Book> books;
 
   Showcase(this.books);
 
+  @override
+  ShowcaseState createState() {
+    return new ShowcaseState();
+  }
+}
+
+class ShowcaseState extends State<Showcase> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,9 +21,9 @@ class Showcase extends StatelessWidget {
         title: Text("Showcase"),
       ),
       body: ListView.builder(
-        itemCount: books.length,
+        itemCount: widget.books.length,
         itemBuilder: (BuildContext context, int index) {
-          var book = books[index];
+          var book = widget.books[index];
 
           return ListTile(
             onTap: () {
@@ -32,6 +39,12 @@ class Showcase extends StatelessWidget {
             ),
             title: Text(book.title),
             subtitle: book.subtitle == null ? SizedBox() : Text(book.subtitle),
+            trailing: book.isRead
+                ? Icon(
+              Icons.check,
+              color: Colors.green,
+            )
+                : SizedBox(),
           );
         },
       ),

@@ -1,11 +1,18 @@
 import 'package:amazeon/models/Book.dart';
 import 'package:flutter/material.dart';
 
-class BookDetails extends StatelessWidget {
-  Book book;
+class BookDetails extends StatefulWidget {
+  final Book book;
 
   BookDetails(this.book);
 
+  @override
+  BookDetailsState createState() {
+    return new BookDetailsState();
+  }
+}
+
+class BookDetailsState extends State<BookDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,24 +28,24 @@ class BookDetails extends StatelessWidget {
                 .size
                 .height / 3,
             child: Hero(
-              tag: "book-${book.title}",
-              child: Image.network(book.thumbnail),
+              tag: "book-${widget.book.title}",
+              child: Image.network(widget.book.thumbnail),
             ),
           ),
           Center(
             child: Text(
-              book.title,
+              widget.book.title,
               style: Theme
                   .of(context)
                   .textTheme
                   .title,
             ),
           ),
-          book.subtitle == null
+          widget.book.subtitle == null
               ? SizedBox()
               : Center(
             child: Text(
-              book.subtitle,
+              widget.book.subtitle,
               style: Theme
                   .of(context)
                   .textTheme
@@ -48,12 +55,23 @@ class BookDetails extends StatelessWidget {
           SizedBox(
             height: 16.0,
           ),
-          Text(book.authors.join(", ")),
-          Text("Pages: ${book.pages}"),
+          SwitchListTile(
+            value: widget.book.isRead,
+            onChanged: (newValue) {
+              setState(() {
+                widget.book.isRead = newValue;
+              });
+            },
+          ),
           SizedBox(
             height: 16.0,
           ),
-          Text(book.description),
+          Text(widget.book.authors.join(", ")),
+          Text("Pages: ${widget.book.pages}"),
+          SizedBox(
+            height: 16.0,
+          ),
+          Text(widget.book.description),
         ],
       ),
     );
