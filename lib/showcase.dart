@@ -9,7 +9,12 @@ class Showcase extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          child: Text("AmazeOn Marketplace"),
+          child: Container(
+              height: MediaQuery
+                  .of(context)
+                  .size
+                  .height / 2,
+              child: Image.asset("assets/image/book1.jpeg")),
         ),
       ),
     );
