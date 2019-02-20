@@ -18,6 +18,9 @@ class Showcase extends StatelessWidget {
           var book = books[index];
 
           return ListTile(
+            onTap: () {
+              print(book.title);
+            },
             leading: Container(
               height: 60.0,
               child: Image.network(book.thumbnail),
