@@ -1,3 +1,4 @@
+import 'package:amazeon/listview_book_item.dart';
 import 'package:flutter/material.dart';
 
 class Showcase extends StatelessWidget {
@@ -9,14 +10,38 @@ class Showcase extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
-          Image.asset("assets/image/book1.jpeg"),
-          Image.asset("assets/image/book2.jpeg"),
-          Image.asset("assets/image/book3.jpeg"),
-          Image.asset("assets/image/book4.jpeg"),
-          Image.asset("assets/image/book5.jpeg"),
-          Image.asset("assets/image/book6.jpeg"),
-          Image.asset("assets/image/book7.jpeg"),
-          Image.asset("assets/image/book8.jpeg"),
+          ListViewBookItem(
+            title: "Algorithms to live By",
+            index: 1,
+          ),
+          ListViewBookItem(
+            title: "Blood, Sweat and Pixels",
+            index: 2,
+          ),
+          ListViewBookItem(
+            title: "Factfulness",
+            index: 3,
+          ),
+          ListViewBookItem(
+            title: "Outliers",
+            index: 4,
+          ),
+          ListViewBookItem(
+            title: "Rework",
+            index: 5,
+          ),
+          ListViewBookItem(
+            title: "Lean Startup",
+            index: 6,
+          ),
+          ListViewBookItem(
+            title: "The Skeptics Guide to the Universe",
+            index: 7,
+          ),
+          ListViewBookItem(
+            title: "Thinking fast and slow",
+            index: 8,
+          ),
         ],
       ),
     );
