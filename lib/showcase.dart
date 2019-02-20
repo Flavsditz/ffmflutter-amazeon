@@ -7,15 +7,17 @@ class Showcase extends StatelessWidget {
       appBar: AppBar(
         title: Text("Showcase"),
       ),
-      body: Center(
-        child: Container(
-          child: Container(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height / 2,
-              child: Image.asset("assets/image/book1.jpeg")),
-        ),
+      body: ListView(
+        children: <Widget>[
+          Image.asset("assets/image/book1.jpeg"),
+          Image.asset("assets/image/book2.jpeg"),
+          Image.asset("assets/image/book3.jpeg"),
+          Image.asset("assets/image/book4.jpeg"),
+          Image.asset("assets/image/book5.jpeg"),
+          Image.asset("assets/image/book6.jpeg"),
+          Image.asset("assets/image/book7.jpeg"),
+          Image.asset("assets/image/book8.jpeg"),
+        ],
       ),
     );
   }
