@@ -1,6 +1,6 @@
-# amazeon
+# AmazeOn
 
-A new Flutter application.
+A new Flutter application to introduce Flutter in the "FFM Flutterers Meetup"
 
 ## Getting Started
 
