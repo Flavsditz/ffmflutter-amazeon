@@ -8,24 +8,45 @@ class BookDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        Container(
-          height: MediaQuery.of(context).size.height / 3,
-          child: Image.network(book.thumbnail),
-        ),
-        Text(
-          book.title,
-          style: Theme.of(context).textTheme.title,
-        ),
-        Text(
-          book.title,
-          style: Theme.of(context).textTheme.subtitle,
-        ),
-        Text(book.authors.join(", ")),
-        Text("Pages: ${book.pages}"),
-        Text(book.description),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Details"),
+      ),
+      body: ListView(
+        padding: EdgeInsets.all(16.0),
+        children: <Widget>[
+          Container(
+            height: MediaQuery
+                .of(context)
+                .size
+                .height / 3,
+            child: Image.network(book.thumbnail),
+          ),
+          Center(
+            child: Text(
+              book.title,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .title,
+            ),
+          ),
+          Center(
+            child: Text(
+              book.subtitle,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .subtitle,
+            ),
+          ),
+          SizedBox(height: 16.0,),
+          Text(book.authors.join(", ")),
+          Text("Pages: ${book.pages}"),
+          SizedBox(height: 16.0,),
+          Text(book.description),
+        ],
+      ),
     );
   }
 }

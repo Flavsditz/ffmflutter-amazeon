@@ -1,3 +1,4 @@
+import 'package:amazeon/details.dart';
 import 'package:amazeon/models/Book.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,8 @@ class Showcase extends StatelessWidget {
 
           return ListTile(
             onTap: () {
-              print(book.title);
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => BookDetails(book)));
             },
             leading: Container(
               height: 60.0,
