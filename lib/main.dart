@@ -36,6 +36,12 @@ class MyAppState extends State<MyApp> {
     return booksList;
   }
 
+  _deleteBook(Book book) {
+    setState(() {
+      books.remove(book);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -43,7 +49,7 @@ class MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: Showcase(books),
+      home: Showcase(books, _deleteBook),
     );
   }
 }

@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 
 class Showcase extends StatefulWidget {
   final List<Book> books;
+  final Function deleteBook;
 
-  Showcase(this.books);
+  Showcase(this.books, this.deleteBook);
 
   @override
   ShowcaseState createState() {
@@ -27,8 +28,9 @@ class ShowcaseState extends State<Showcase> {
 
           return ListTile(
             onTap: () {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => BookDetails(book)));
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => BookDetails(book, widget.deleteBook),
+              ));
             },
             leading: Container(
               height: 60.0,

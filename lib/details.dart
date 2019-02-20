@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class BookDetails extends StatefulWidget {
   final Book book;
+  final Function deleteBook;
 
-  BookDetails(this.book);
+  BookDetails(this.book, this.deleteBook);
 
   @override
   BookDetailsState createState() {
@@ -18,6 +19,15 @@ class BookDetailsState extends State<BookDetails> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Details"),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              widget.deleteBook(widget.book);
+              Navigator.of(context).pop();
+            },
+            icon: Icon(Icons.delete_outline),
+          ),
+        ],
       ),
       body: ListView(
         padding: EdgeInsets.all(16.0),
