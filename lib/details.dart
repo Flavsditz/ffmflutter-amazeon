@@ -20,7 +20,10 @@ class BookDetails extends StatelessWidget {
                 .of(context)
                 .size
                 .height / 3,
-            child: Image.network(book.thumbnail),
+            child: Hero(
+              tag: "book-${book.title}",
+              child: Image.network(book.thumbnail),
+            ),
           ),
           Center(
             child: Text(
@@ -31,7 +34,9 @@ class BookDetails extends StatelessWidget {
                   .title,
             ),
           ),
-          book.subtitle == null ? SizedBox() : Center(
+          book.subtitle == null
+              ? SizedBox()
+              : Center(
             child: Text(
               book.subtitle,
               style: Theme
@@ -40,10 +45,14 @@ class BookDetails extends StatelessWidget {
                   .subtitle,
             ),
           ),
-          SizedBox(height: 16.0,),
+          SizedBox(
+            height: 16.0,
+          ),
           Text(book.authors.join(", ")),
           Text("Pages: ${book.pages}"),
-          SizedBox(height: 16.0,),
+          SizedBox(
+            height: 16.0,
+          ),
           Text(book.description),
         ],
       ),

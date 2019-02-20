@@ -25,7 +25,10 @@ class Showcase extends StatelessWidget {
             },
             leading: Container(
               height: 60.0,
-              child: Image.network(book.thumbnail),
+              child: Hero(
+                tag: "book-${book.title}",
+                child: Image.network(book.thumbnail),
+              ),
             ),
             title: Text(book.title),
             subtitle: book.subtitle == null ? SizedBox() : Text(book.subtitle),
