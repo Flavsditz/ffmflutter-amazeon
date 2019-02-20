@@ -31,7 +31,7 @@ class BookDetails extends StatelessWidget {
                   .title,
             ),
           ),
-          Center(
+          book.subtitle == null ? SizedBox() : Center(
             child: Text(
               book.subtitle,
               style: Theme
