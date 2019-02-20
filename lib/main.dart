@@ -43,7 +43,7 @@ class MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: Showcase(),
+      home: Showcase(books),
     );
   }
 }

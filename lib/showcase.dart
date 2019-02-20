@@ -1,48 +1,31 @@
-import 'package:amazeon/listview_book_item.dart';
+import 'package:amazeon/models/Book.dart';
 import 'package:flutter/material.dart';
 
 class Showcase extends StatelessWidget {
+  final List<Book> books;
+
+  Showcase(this.books);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Showcase"),
       ),
-      body: ListView(
-        children: <Widget>[
-          ListViewBookItem(
-            title: "Algorithms to live By",
-            index: 1,
-          ),
-          ListViewBookItem(
-            title: "Blood, Sweat and Pixels",
-            index: 2,
-          ),
-          ListViewBookItem(
-            title: "Factfulness",
-            index: 3,
-          ),
-          ListViewBookItem(
-            title: "Outliers",
-            index: 4,
-          ),
-          ListViewBookItem(
-            title: "Rework",
-            index: 5,
-          ),
-          ListViewBookItem(
-            title: "Lean Startup",
-            index: 6,
-          ),
-          ListViewBookItem(
-            title: "The Skeptics Guide to the Universe",
-            index: 7,
-          ),
-          ListViewBookItem(
-            title: "Thinking fast and slow",
-            index: 8,
-          ),
-        ],
+      body: ListView.builder(
+        itemCount: books.length,
+        itemBuilder: (BuildContext context, int index) {
+          var book = books[index];
+
+          return ListTile(
+            leading: Container(
+              height: 60.0,
+              child: Image.network(book.thumbnail),
+            ),
+            title: Text(book.title),
+            subtitle: book.subtitle == null ? SizedBox() : Text(book.subtitle),
+          );
+        },
       ),
     );
   }

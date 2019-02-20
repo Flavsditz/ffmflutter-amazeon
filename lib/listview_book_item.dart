@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ListViewBookItem extends StatelessWidget {
-  String title;
-  int index;
+  final String title;
+  final int index;
 
   ListViewBookItem({this.title, this.index});
 

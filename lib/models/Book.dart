@@ -13,7 +13,7 @@ class Book {
 
   Book.fromJson(Map<String, dynamic> map) {
     this.title = map["title"];
-    this.subtitle = map["subtitle"];
+    this.subtitle = map["subtitle"] == "None" ? null : map["subtitle"];
     this.pages = map["pages"] == "None" ? null : map["pages"];
     this.authors = map["authors"].split(", ");
     this.thumbnail = map["thumbnail"];
