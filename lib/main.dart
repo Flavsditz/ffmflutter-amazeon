@@ -49,7 +49,10 @@ class MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: Showcase(books, _deleteBook),
+      routes: {
+        "/": (context) => Showcase(books, _deleteBook),
+      },
+      initialRoute: "/",
     );
   }
 }

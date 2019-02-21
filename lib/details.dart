@@ -96,10 +96,12 @@ class BookDetailsState extends State<BookDetails> {
                 color: Colors.red,
                 onPressed: () {
                   widget.deleteBook(widget.book);
-                  Navigator.of(context).popUntil(
-                      ModalRoute.withName(Navigator.defaultRouteName));
+                  Navigator.of(context).popUntil(ModalRoute.withName("/"));
                 },
-                child: Text("Delete", style: TextStyle(color: Colors.white),),
+                child: Text(
+                  "Delete",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
               FlatButton(
                 onPressed: () {
