@@ -21,10 +21,7 @@ class BookDetailsState extends State<BookDetails> {
         title: Text("Details"),
         actions: <Widget>[
           IconButton(
-            onPressed: () {
-              widget.deleteBook(widget.book);
-              Navigator.of(context).pop();
-            },
+            onPressed: () => _showDeleteAlert(),
             icon: Icon(Icons.delete_outline),
           ),
         ],
@@ -85,5 +82,33 @@ class BookDetailsState extends State<BookDetails> {
         ],
       ),
     );
+  }
+
+  _showDeleteAlert() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Sure you want to delete it?"),
+            content: Text("Once you delete there is no comming back..."),
+            actions: <Widget>[
+              RaisedButton(
+                color: Colors.red,
+                onPressed: () {
+                  widget.deleteBook(widget.book);
+                  Navigator.of(context).popUntil(
+                      ModalRoute.withName(Navigator.defaultRouteName));
+                },
+                child: Text("Delete", style: TextStyle(color: Colors.white),),
+              ),
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text("Cancel"),
+              ),
+            ],
+          );
+        });
   }
 }
